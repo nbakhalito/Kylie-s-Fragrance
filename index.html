@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kylie's Fragrance | Luxury Perfumes, Body Sprays, Diffusers & Men's Wear</title>
+  <meta name="description" content="Shop Kylie's Fragrance for luxury perfumes, body sprays, elegant home diffusers, men's wear and beautiful fragrance collections." />
+  <meta name="keywords" content="luxury perfume, fragrance, body spray, diffuser, men's wear, Kylie's Fragrance" />
+  <meta property="og:title" content="Kylie's Fragrance | Luxury Perfumes & Fashion" />
+  <meta property="og:description" content="Shop luxury perfumes, body sprays, home diffusers and men's wear." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" onclick="showPage('home'); return false;">Kylie's <span>Fragrance</span></a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#" class="nav-link active" data-page="home" onclick="showPage('home'); return false;">Home</a>
+        <a href="#" class="nav-link" data-page="shop" onclick="showPage('shop'); return false;">Shop</a>
+        <a href="#about" class="nav-link" onclick="showPage('home'); setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100); return false;">About Us</a>
+        <a href="#contact" class="nav-link" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100); return false;">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" onclick="openSearch()" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          <span class="badge-count wishlist-count" style="display:none">0</span>
+        </button>
+        <button class="icon-btn" onclick="openCart()" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="badge-count cart-count" style="display:none">0</span>
+        </button>
+        <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#" class="nav-link" onclick="showPage('home'); return false;">Home</a>
+    <a href="#" class="nav-link" onclick="showPage('shop'); return false;">Shop</a>
+    <a href="#about" class="nav-link" onclick="showPage('home'); setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100); return false;">About Us</a>
+    <a href="#contact" class="nav-link" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100); return false;">Contact</a>
+    <a href="login.html" class="nav-link">Login / Register</a>
+  </div>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <input type="search" id="searchInput" placeholder="Search fragrances, body sprays, men's wear..." aria-label="Search products" />
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- ========== HOME PAGE ========== -->
+  <div id="homePage" class="page-section active">
+
+    <!-- Hero Slider -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-slider">
+        <div class="hero-slide active">
+          <img src="https://images.pexels.com/photos/4108279/pexels-photo-4108279.jpeg?w=1600&q=80" alt="Luxury perfume bottles on elegant surface" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Discover Your Signature Scent</h1>
+            <p>Luxury fragrances designed to make every moment unforgettable.</p>
+            <button class="btn btn-primary" onclick="filterByCategory('perfumes')">Shop Perfumes</button>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://images.pexels.com/photos/30238399/pexels-photo-30238399.jpeg?w=1600&q=80" alt="Elegant fragrance collection" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Luxury That Lingers</h1>
+            <p>Beautiful fragrances, captivating aromas and unforgettable impressions.</p>
+            <button class="btn btn-primary" onclick="showPage('shop')">Explore Fragrances</button>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://images.pexels.com/photos/38375868/pexels-photo-38375868.jpeg?w=1600&q=80" alt="Luxury home fragrance diffuser" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Refresh Your Space</h1>
+            <p>Transform your home with elegant and long-lasting fragrance diffusers.</p>
+            <button class="btn btn-primary" onclick="filterByCategory('diffusers')">Shop Diffusers</button>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://images.pexels.com/photos/32549963/pexels-photo-32549963.jpeg?w=1600&q=80" alt="Stylish men's fashion collection" />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Style Meets Confidence</h1>
+            <p>Discover our carefully selected men's wear collection.</p>
+            <button class="btn btn-primary" onclick="filterByCategory('mens-wear')">Shop Men's Wear</button>
+          </div>
+        </div>
+      </div>
+      <button class="hero-arrows hero-prev" aria-label="Previous slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="hero-arrows hero-next" aria-label="Next slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="hero-dots">
+        <button class="hero-dot active" aria-label="Slide 1"></button>
+        <button class="hero-dot" aria-label="Slide 2"></button>
+        <button class="hero-dot" aria-label="Slide 3"></button>
+        <button class="hero-dot" aria-label="Slide 4"></button>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section" id="categories">
+      <div class="container">
+        <h2 class="section-title">Shop by Category</h2>
+        <p class="section-subtitle">Explore our curated collections of luxury fragrances and style</p>
+        <div class="categories-grid">
+          <div class="category-card" onclick="filterByCategory('perfumes')">
+            <img src="https://images.pexels.com/photos/7205246/pexels-photo-7205246.jpeg?w=600&q=80" alt="Luxury perfumes" />
+            <div class="category-overlay">
+              <h3>Perfumes</h3>
+              <p>Luxury fragrances for women and men.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+          <div class="category-card" onclick="filterByCategory('body-sprays')">
+            <img src="https://images.pexels.com/photos/14151834/pexels-photo-14151834.jpeg?w=600&q=80" alt="Body sprays" />
+            <div class="category-overlay">
+              <h3>Body Sprays</h3>
+              <p>Refreshing everyday body sprays with beautiful scents.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+          <div class="category-card" onclick="filterByCategory('diffusers')">
+            <img src="https://images.pexels.com/photos/15426084/pexels-photo-15426084.jpeg?w=600&q=80" alt="Home diffusers" />
+            <div class="category-overlay">
+              <h3>Diffusers</h3>
+              <p>Elegant home and room diffusers for a pleasant atmosphere.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+          <div class="category-card" onclick="filterByCategory('mens-wear')">
+            <img src="https://img.kwcdn.com/product/fancy/c149489f-b89b-4b89-8d14-2cca67d496d1.jpg?imageView2/2/w/800/q/70/format/avif?w=600&q=80" alt="Men's wear" />
+            <div class="category-overlay">
+              <h3>Men's Wear</h3>
+              <p>Modern and stylish men's clothing for every occasion.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+          <div class="category-card" onclick="filterByCategory('gift-sets')">
+            <img src="https://images.pexels.com/photos/6832992/pexels-photo-6832992.jpeg?w=600&q=80" alt="Gift sets" />
+            <div class="category-overlay">
+              <h3>Gift Sets</h3>
+              <p>Beautiful fragrance gift sets for special occasions.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+          <div class="category-card" onclick="filterByCategory('accessories')">
+            <img src="https://images.pexels.com/photos/31410822/pexels-photo-31410822.jpeg?w=600&q=80" alt="Accessories" />
+            <div class="category-overlay">
+              <h3>Accessories</h3>
+              <p>Selected fashion and fragrance accessories.</p>
+              <button class="btn btn-white btn-sm">Shop Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section" style="background: var(--light-blush);" id="bestsellers">
+      <div class="container">
+        <h2 class="section-title">Our Best Sellers</h2>
+        <p class="section-subtitle">Customer favourites — the scents and styles everyone loves</p>
+        <div class="products-grid" id="bestSellersGrid"></div>
+        <div style="text-align:center; margin-top: 40px;">
+          <button class="btn btn-outline" onclick="showPage('shop')">View All Products</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="section">
+      <div class="container">
+        <div class="promo-banner">
+          <h2>A Little Luxury, Just For You</h2>
+          <p>Discover fragrances and fashion pieces made to elevate your everyday style.</p>
+          <button class="btn btn-primary" onclick="showPage('shop')">Shop Collection</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="section" id="new-arrivals">
+      <div class="container">
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">The latest additions to our luxury collection</p>
+        <div class="products-grid" id="newArrivalsGrid"></div>
+        <div style="text-align:center; margin-top: 40px;">
+          <button class="btn btn-primary" onclick="showPage('shop')">Shop New Arrivals</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" style="background: var(--light-blush);">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image">
+            <img src="https://images.pexels.com/photos/22589332/pexels-photo-22589332.jpeg?w=800&q=80" alt="Kylie's Fragrance lifestyle" />
+          </div>
+          <div class="about-content">
+            <h2>Welcome to Kylie's Fragrance</h2>
+            <p>At Kylie's Fragrance, we believe that the right scent can transform a moment, elevate your mood and leave a lasting impression. We carefully curate luxury perfumes, body sprays, home fragrances and selected men's fashion so you can discover products that feel personal and refined.</p>
+            <p>From signature eau de parfums to elegant room diffusers and stylish men's wear, every piece is chosen with quality, beauty and everyday luxury in mind. Whether you're treating yourself or finding the perfect gift, we're here to help you find something truly special.</p>
+            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Learn More About Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Shop With Us -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Why Shop With Us</h2>
+        <p class="section-subtitle">The Kylie's Fragrance difference</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3>Premium Quality</h3>
+            <p>Carefully selected products with quality and style in mind.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <h3>Beautiful Fragrances</h3>
+            <p>Discover scents for every mood, occasion and personality.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+            </div>
+            <h3>Easy Shopping</h3>
+            <p>Simple and convenient online shopping experience.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </div>
+            <h3>Secure Checkout</h3>
+            <p>A safe and straightforward checkout experience.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <h3>Customer Support</h3>
+            <p>Easy access to assistance via WhatsApp and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section" style="background: var(--light-blush);">
+      <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">Real experiences from the Kylie's Fragrance community</p>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ24ddB6YeEHUAaTV21I_P5_W_Lv-gls5fMAVuLYpJiQ&s=10?w=100&q=80" alt="Amara O." />
+              <div>
+                <div class="review-name">Amara O.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="review-text">"The Signature Rose perfume is absolutely divine. Soft, elegant and lasts all day. Packaging was beautiful too!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJNeHEtnmW10DoTA3sQd8shLRQ5l3M1pe_WovRtpRcAxejjGkkgQ9JgTU&s=10?w=100&q=80" alt="David K." />
+              <div>
+                <div class="review-name">David K.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="review-text">"Ordered the men's polo and the Oud Collection. Both exceeded expectations. Quality is top-tier."</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDB7Ph_dbk8jDaGgor0yElkLTesidYMgGkFx9rbp4FDg&s=10?w=100&q=80" alt="Chioma A." />
+              <div>
+                <div class="review-name">Chioma A.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="review-text">"The room diffuser transformed my living space. Subtle, long-lasting and so elegant. Highly recommend!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqdO2NtimpywCNwG52IrCMyPmNclc5Aa8a6kBQ83Nkyg&s=10?w=100&q=80" alt="Tunde B." />
+              <div>
+                <div class="review-name">Tunde B.</div>
+                <div class="review-stars">★★★★☆</div>
+              </div>
+            </div>
+            <p class="review-text">"Fast delivery and the gift set was perfect for my wife's birthday. She loved every product in the box."</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMCHNrgXPPYDc33govn8fPte7SFzzCGkVU2GRVX39AyA&s=10?w=100&q=80" alt="Fatima S." />
+              <div>
+                <div class="review-name">Fatima S.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="review-text">"Velvet Musk is my new everyday scent. Light, creamy and gets so many compliments. Will order again!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img class="review-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDFM2z-s30G1hSL8pEdiiaY7uHV_nO1hkWq3HBFuH5MQ&s=10?w=100&q=80" alt="Ibrahim M." />
+              <div>
+                <div class="review-name">Ibrahim M.</div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+            </div>
+            <p class="review-text">"Great customer service on WhatsApp and the body sprays are excellent value. Premium feel without the premium price."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram / Social -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Follow Kylie's Fragrance</h2>
+        <p class="section-subtitle">Fragrance, fashion and lifestyle inspiration</p>
+        <div class="social-grid">
+          <div class="social-item"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&q=80" alt="Fragrance lifestyle" /></div>
+          <div class="social-item"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&q=80" alt="Perfume bottle" /></div>
+          <div class="social-item"><img src="https://images.pexels.com/photos/17568000/pexels-photo-17568000.jpeg?w=400&q=80" alt="Home diffuser" /></div>
+          <div class="social-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80" alt="Men's fashion" /></div>
+          <div class="social-item"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&q=80" alt="Gift packaging" /></div>
+          <div class="social-item"><img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&q=80" alt="Rose perfume" /></div>
+        </div>
+        <div class="social-buttons">
+          <a href="https://www.instagram.com/kylies_fragrance?stkn=a2h0dzAwOWszZjg5" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@kylie_vicky?_r=1&_t=ZS-9AEZrkjhGcS" class="social-btn" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.11 15.9a6.34 6.34 0 0010.98-4.32V8.26a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.27-.19z"/></svg>
+            TikTok
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+      <div class="container">
+        <div class="newsletter">
+          <h2>Stay in the Scent</h2>
+          <p>Subscribe to receive new arrivals, exclusive offers, fragrance inspiration and special updates from Kylie's Fragrance.</p>
+          <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+            <input type="email" placeholder="Your email address" required aria-label="Email for newsletter" />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" style="background: var(--light-blush);">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p style="color:var(--gray); margin-bottom: 28px;">We'd love to hear from you. Reach out for product enquiries, orders or anything else.</p>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <div>
+                <strong>Phone / WhatsApp</strong><br />
+                <a href="https://wa.me/9064578588" class="whatsapp-link" target="_blank" rel="noopener noreferrer">9064578588</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <strong>Email</strong><br />
+                <a href="mailto:Kylievicky422@gmail.com">Kylievicky422@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <div>
+                <strong>Instagram</strong><br />
+                <a href="https://www.instagram.com/kylies_fragrance?stkn=a2h0dzAwOWszZjg5" target="_blank" rel="noopener">kylies_fragrance.</a>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.11 15.9a6.34 6.34 0 0010.98-4.32V8.26a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.27-.19z"/></svg>
+              <div>
+                <strong>TikTok</strong><br />
+                <a href="https://www.tiktok.com/@kylie_vicky?_r=1&_t=ZS-9AEZrkjhGcS" target="_blank" rel="noopener">Kylie_vicky</a>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" onsubmit="handleContactForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" required placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" required placeholder="you@example.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input type="tel" id="contactPhone" placeholder="Your phone number" />
+              </div>
+              <div class="form-group">
+                <label for="contactSubject">Subject</label>
+                <input type="text" id="contactSubject" required placeholder="How can we help?" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" required placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end homePage -->
+
+  <!-- ========== SHOP PAGE ========== -->
+  <div id="shopPage" class="page-section">
+    <div class="page-header">
+      <div class="container">
+        <h1>Shop All</h1>
+        <p style="color:var(--gray); margin-top:8px">Discover our full collection of luxury fragrances and style</p>
+      </div>
+    </div>
+    <section class="section" style="padding-top: 32px;">
+      <div class="container">
+        <div class="shop-toolbar">
+          <div class="filters-row">
+            <select class="filter-select" id="filterCategory" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+              <option value="perfumes">Perfumes</option>
+              <option value="body-sprays">Body Sprays</option>
+              <option value="diffusers">Diffusers</option>
+              <option value="mens-wear">Men's Wear</option>
+              <option value="gift-sets">Gift Sets</option>
+              <option value="accessories">Accessories</option>
+            </select>
+            <select class="filter-select" id="filterPrice" aria-label="Filter by price">
+              <option value="all">All Prices</option>
+              <option value="0-10000">Under ₦10,000</option>
+              <option value="10000-25000">₦10,000 – ₦25,000</option>
+              <option value="25000-50000">₦25,000 – ₦50,000</option>
+              <option value="50000">Over ₦50,000</option>
+            </select>
+            <select class="filter-select" id="filterBrand" aria-label="Filter by brand">
+              <option value="all">All Brands</option>
+              
+            </select>
+            <select class="filter-select" id="filterSize" aria-label="Filter by size">
+              <option value="all">All Sizes</option>
+              <option value="50ml">50ml</option>
+              <option value="75ml">75ml</option>
+              <option value="100ml">100ml</option>
+              <option value="150ml">150ml</option>
+              <option value="200ml">200ml</option>
+            </select>
+            <select class="filter-select" id="filterFragrance" aria-label="Filter by fragrance type">
+              <option value="all">All Types</option>
+              <option value="Floral">Floral</option>
+              <option value="Oriental">Oriental</option>
+              <option value="Woody">Woody</option>
+              <option value="Fresh">Fresh</option>
+              <option value="Musky">Musky</option>
+              <option value="Citrus">Citrus</option>
+            </select>
+            <select class="filter-select" id="filterAvailability" aria-label="Filter by availability">
+              <option value="all">All</option>
+              <option value="in-stock">In Stock</option>
+            </select>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span id="productCount" style="font-size:0.9rem; color:var(--gray)"></span>
+            <select class="sort-select" id="sortSelect" aria-label="Sort products">
+              <option value="popular">Popular</option>
+              <option value="newest">Newest</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="best-selling">Best Selling</option>
+            </select>
+          </div>
+        </div>
+        <div class="products-grid" id="shopProducts"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== CHECKOUT PAGE ========== -->
+  <div id="checkoutPage" class="page-section">
+    <div class="page-header">
+      <div class="container">
+        <h1>Checkout</h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="checkout-grid">
+        <form class="checkout-form" onsubmit="placeOrder(event)">
+          <h3>Customer Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="coName">Full Name *</label>
+              <input type="text" id="coName" required />
+            </div>
+            <div class="form-group">
+              <label for="coEmail">Email *</label>
+              <input type="email" id="coEmail" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="coPhone">Phone Number *</label>
+              <input type="tel" id="coPhone" required />
+            </div>
+            <div class="form-group">
+              <label for="coCity">City *</label>
+              <input type="text" id="coCity" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="coAddress">Delivery Address *</label>
+            <textarea id="coAddress" required rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="coNotes">Order Notes (optional)</label>
+            <textarea id="coNotes" rows="2" placeholder="Special instructions for delivery..."></textarea>
+          </div>
+          <h3 style="margin-top:32px">Payment</h3>
+          <p style="color:var(--gray); font-size:0.95rem; margin-bottom:16px;">Payment integration can be connected later. For now, orders are confirmed and you'll be contacted for payment.</p>
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px">Place Order</button>
+        </form>
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div id="orderSummaryItems"></div>
+          <div class="coupon-row">
+            <input type="text" id="couponCode" placeholder="Promo code" />
+            <button class="btn btn-outline btn-sm" type="button" onclick="applyCoupon()">Apply</button>
+          </div>
+          <div class="summary-totals">
+            <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">₦0</span></div>
+            <div class="summary-row"><span>Shipping</span><span id="summaryShipping">₦0</span></div>
+            <div class="summary-row total"><span>Total</span><span id="summaryTotal">₦0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ORDER CONFIRMATION ========== -->
+  <div id="confirmationPage" class="page-section">
+    <div class="container" style="text-align:center; padding: 80px 24px;">
+      <div style="width:80px; height:80px; background:var(--soft-pink); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; color:var(--primary);">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 style="font-family:var(--font-heading); font-size:2.2rem; margin-bottom:12px;">Thank You!</h1>
+      <p style="color:var(--gray); max-width:480px; margin:0 auto 8px;">Your order has been placed successfully.</p>
+      <p style="margin-bottom:32px;">Order ID: <strong id="orderIdDisplay">—</strong></p>
+      <p style="color:var(--gray); max-width:480px; margin:0 auto 32px; font-size:0.95rem;">We'll contact you shortly via WhatsApp or phone to confirm payment and delivery details. You can also reach us anytime on WhatsApp.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="showPage('home')">Back to Home</button>
+        <a href="#" class="btn btn-outline whatsapp-link">Chat on WhatsApp</a>
+      </div>
+      <p style="margin-top:40px; font-size:0.9rem; color:var(--gray);">Order tracking will be available once your order is processed.</p>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home'); return false;">Kylie's <span>Fragrance</span></a>
+          <p>Luxury fragrances. Beautiful spaces. Effortless style.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/kylies_fragrance?stkn=a2h0dzAwOWszZjg5" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@kylie_vicky?_r=1&_t=ZS-9AEZrkjhGcS" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.11 15.9a6.34 6.34 0 0010.98-4.32V8.26a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.27-.19z"/></svg>
+            </a>
+            <a href="#" class="whatsapp-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#" onclick="filterByCategory('perfumes'); return false;">Perfumes</a>
+          <a href="#" onclick="filterByCategory('body-sprays'); return false;">Body Sprays</a>
+          <a href="#" onclick="filterByCategory('diffusers'); return false;">Diffusers</a>
+          <a href="#" onclick="filterByCategory('mens-wear'); return false;">Men's Wear</a>
+          <a href="#" onclick="filterByCategory('gift-sets'); return false;">Gift Sets</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="index.html" onclick="showPage('home'); return false;">Home</a>
+          <a href="shop.html" onclick="showPage('shop'); return false;">Shop</a>
+          <a href="index.html#about" onclick="showPage('home'); setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100); return false;">About Us</a>
+          <a href="index.html#contact" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100); return false;">Contact</a>
+        
+
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="shipping.html">Shipping & Returns</a>
+          <a href="login.html">Login / Register</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Kylie's Fragrance. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="#" class="whatsapp-float whatsapp-link" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" onclick="closeCart()" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₦0</span>
+      </div>
+      <button class="btn btn-primary" onclick="closeCart(); showPage('checkout')">Checkout</button>
+      <button class="btn btn-outline" onclick="closeCart()">Continue Shopping</button>
+    </div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal" id="quickViewContent"></div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

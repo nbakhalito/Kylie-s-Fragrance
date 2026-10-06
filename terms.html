@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms &amp; Conditions | Kylie's Fragrance</title>
+    <meta name="description" content="Terms and Conditions for shopping at Kylie's Fragrance." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Kylie's <span>Fragrance</span></a>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link" onclick="sessionStorage.setItem('kylie_goto','shop')">Shop</a>
+                <a href="index.html" class="nav-link"
+                    onclick="sessionStorage.setItem('kylie_goto','perfumes')">Perfumes</a>
+                <a href="index.html" class="nav-link" onclick="sessionStorage.setItem('kylie_goto','body-sprays')">Body
+                    Sprays</a>
+                <a href="index.html" class="nav-link"
+                    onclick="sessionStorage.setItem('kylie_goto','diffusers')">Diffusers</a>
+                <a href="index.html" class="nav-link" onclick="sessionStorage.setItem('kylie_goto','mens-wear')">Men's
+                    Wear</a>
+                <a href="index.html" class="nav-link" onclick="sessionStorage.setItem('kylie_goto','gift-sets')">Gift
+                    Sets</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" onclick="openSearch()" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+                <a href="login.html" class="icon-btn" aria-label="Account">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </a>
+                <button class="icon-btn" aria-label="Wishlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                    </svg>
+                    <span class="badge-count wishlist-count" style="display:none">0</span>
+                </button>
+                <button class="icon-btn" onclick="openCart()" aria-label="Shopping cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 01-8 0" />
+                    </svg>
+                    <span class="badge-count cart-count" style="display:none">0</span>
+                </button>
+                <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html" class="nav-link" onclick="sessionStorage.setItem('kylie_goto','shop')">Shop</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Login / Register</a>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <input type="search" id="searchInput" placeholder="Search fragrances, body sprays, men's wear..."
+                aria-label="Search products" />
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Terms &amp; Conditions</h1>
+                <p style="color:var(--gray); margin-top:8px;">Please read these terms carefully before using our website
+                    or placing an order</p>
+            </div>
+        </div>
+        <div class="legal-page">
+            <div class="legal-content">
+                <p class="legal-updated">Last updated: January 2026</p>
+
+                <h2>1. Agreement to Terms</h2>
+                <p>By accessing the Kylie's Fragrance website or placing an order, you agree to be bound by these Terms
+                    &amp; Conditions. If you do not agree, please do not use the site or purchase from us.</p>
+
+                <h2>2. About Us</h2>
+                <p>Kylie's Fragrance is a premium fragrance and lifestyle store offering luxury perfumes, body sprays,
+                    fragrance oils, home diffusers, car fragrances, gift sets, men's wear and selected accessories.
+                    Contact details are available on our Contact page and in the footer of this website.</p>
+
+                <h2>3. Products and Descriptions</h2>
+                <p>We aim to describe products accurately, including scents, sizes and materials. Images are for
+                    illustration; colours and packaging may vary slightly. Fragrance experience is subjective — we
+                    encourage you to read product details and reviews carefully before ordering.</p>
+                <p>Prices are displayed in Nigerian Naira (₦) unless otherwise stated and may change without notice. The
+                    price charged is the one shown at the time you complete checkout, subject to availability.</p>
+
+                <h2>4. Orders</h2>
+                <ul>
+                    <li>Placing an order constitutes an offer to buy. We may accept or decline an order (for example, if
+                        a product is out of stock or we suspect fraud).</li>
+                    <li>Order confirmation (by email, WhatsApp or on-screen) does not guarantee acceptance until we
+                        confirm and process payment as applicable.</li>
+                    <li>You are responsible for providing accurate contact and delivery information.</li>
+                </ul>
+
+                <h2>5. Payment</h2>
+                <p>Payment methods will be those offered at checkout once payment providers are connected. You agree to
+                    pay the full amount for products and any applicable shipping or fees. Until full payment is
+                    received, we may withhold dispatch of the order.</p>
+
+                <h2>6. Shipping and Delivery</h2>
+                <p>Delivery times and costs are described on our <a href="shipping.html">Shipping &amp; Returns</a>
+                    page. Risk of loss passes to you upon delivery to the address you provided, except where required
+                    otherwise by law.</p>
+
+                <h2>7. Returns and Refunds</h2>
+                <p>Please see our <a href="shipping.html">Shipping &amp; Returns</a> policy for eligibility, time limits
+                    and process. Hygiene and safety may limit returns of opened fragrance and personal-care products.
+                </p>
+
+                <h2>8. Accounts</h2>
+                <p>If you create an account, you must provide accurate information and keep your password confidential.
+                    You are responsible for activity under your account. We may suspend or close accounts that violate
+                    these terms or are used fraudulently.</p>
+
+                <h2>9. Intellectual Property</h2>
+                <p>All content on this website — including text, logos, images, design and product descriptions — is
+                    owned by or licensed to Kylie's Fragrance and is protected by intellectual property laws. You may
+                    not copy, reproduce or use our content for commercial purposes without our written permission.</p>
+
+                <h2>10. Acceptable Use</h2>
+                <p>You agree not to misuse the website, attempt unauthorised access, interfere with its operation, or
+                    use it for unlawful purposes. We may restrict access if we reasonably believe these terms have been
+                    breached.</p>
+
+                <h2>11. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by law, Kylie's Fragrance shall not be liable for indirect,
+                    incidental or consequential damages arising from your use of the site or products. Our total
+                    liability in connection with any order shall not exceed the amount you paid for that order. Nothing
+                    in these terms excludes liability that cannot be limited under applicable law.</p>
+
+                <h2>12. Governing Law</h2>
+                <p>These terms are governed by the laws of the Federal Republic of Nigeria. Disputes shall be subject to
+                    the exclusive jurisdiction of the courts of Nigeria, without prejudice to any mandatory consumer
+                    protections that may apply.</p>
+
+                <h2>13. Changes</h2>
+                <p>We may update these Terms &amp; Conditions from time to time. The latest version will be posted on
+                    this page with an updated date. Continued use of the site after changes means you accept the revised
+                    terms.</p>
+
+                <h2>14. Contact</h2>
+                <p>Questions about these terms:</p>
+                <ul>
+                    <li>WhatsApp / Phone: <a href="https://wa.me/9064578588" class="whatsapp-link" target="_blank" rel="noopener noreferrer">9064578588</a></li>
+                    <li>Email: <a href="mailto:Kylievicky422@gmail.com">Kylievicky422@gmail.com</a></li>
+                </ul>
+                <div class="legal-highlight">
+                    <p>These Terms &amp; Conditions outline how we serve our customers, protect our business, and clarify
+                        the rights and responsibilities of both parties when shopping with Kylie's Fragrance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Kylie's <span>Fragrance</span></a>
+                    <p>Luxury fragrances. Beautiful spaces. Effortless style.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/kylies_fragrance?stkn=a2h0dzAwOWszZjg5" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@kylie_vicky?_r=1&_t=ZS-9AEZrkjhGcS" target="_blank" rel="noopener" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.11 15.9a6.34 6.34 0 0010.98-4.32V8.26a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.27-.19z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="whatsapp-link" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','perfumes')">Perfumes</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','body-sprays')">Body Sprays</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','diffusers')">Diffusers</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','mens-wear')">Men's Wear</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','gift-sets')">Gift Sets</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="index.html">Home</a>
+                    <a href="index.html" onclick="sessionStorage.setItem('kylie_goto','shop')">Shop</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                    <a href="shipping.html">Shipping &amp; Returns</a>
+                    <a href="login.html">Login / Register</a>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Kylie's Fragrance. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <a href="#" class="whatsapp-float whatsapp-link" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" onclick="closeCart()" aria-label="Close cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total</span><span id="cartTotal">₦0</span></div>
+            <a href="index.html" class="btn btn-primary" style="width:100%;margin-bottom:10px;text-align:center"
+                onclick="sessionStorage.setItem('kylie_goto','checkout')">Checkout</a>
+            <button class="btn btn-outline" onclick="closeCart()" style="width:100%">Continue Shopping</button>
+        </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
